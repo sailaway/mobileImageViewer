@@ -1,0 +1,2 @@
+# mobileImageViewer
+类似微信朋友圈图片查看的移动端JS组件
