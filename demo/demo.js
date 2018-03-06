@@ -13,7 +13,7 @@ function init(){
         vwidth: vw,
         vheight: vh,
         indicator:true,
-        tapClose:false,
+        tapClose:true,
         sliderReverse:true,
         sliderdownClose:false,
     });

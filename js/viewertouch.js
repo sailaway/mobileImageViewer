@@ -49,10 +49,12 @@
             obj.removeEventListener("touchstart", _estart);
             obj.removeEventListener("touchmove", _emove);
             obj.removeEventListener("touchend", _eend);
+            obj.removeEventListener("touchcancel", _eend);
 
-            obj.addEventListener('touchstart', _estart, false);
-            obj.addEventListener('touchmove', _emove, false);
-            obj.addEventListener('touchend', _eend, false);
+            obj.addEventListener('touchstart', _estart, true);
+            obj.addEventListener('touchmove', _emove, true);
+            obj.addEventListener('touchend', _eend, true);
+            obj.addEventListener('touchcancel', _eend, true);
         } else if (window.attachEvent) {
             obj.attach('ontouchstart', _estart);
             obj.attach('ontouchmove', _emove);

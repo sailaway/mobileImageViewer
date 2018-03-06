@@ -123,6 +123,7 @@
         }
     }
     viewer.slidernext = function(obj){
+        console.log('slidernext')
         var idx = viewer.curindex + 1;
         if (AppConfig.sliderReverse) {
             idx = viewer.curindex - 1;
@@ -130,6 +131,7 @@
         viewer.sliderto(idx,0,true);
     }
     viewer.sliderprev = function(obj){
+        console.log('sliderprev')
         var idx = viewer.curindex - 1;
         if (AppConfig.sliderReverse) {
             idx = viewer.curindex + 1;
@@ -137,12 +139,14 @@
         viewer.sliderto(idx,0,true);
     }
     viewer.touchmove = function(obj,moveX,moveY){
+        // console.log('touchmove')
         if (AppConfig.sliderReverse) {
             moveX = -moveX;
         }
         viewer.sliderto(viewer.curindex,moveX,false)
     }
     viewer.sliderreset = function(obj){
+        console.log('sliderreset')
         viewer.sliderto(viewer.curindex,0,false)
     },
 
