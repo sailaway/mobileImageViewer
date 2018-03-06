@@ -34,26 +34,29 @@
     var viewertouch = function (options) {
         var obj = this;
         var opts = _merge(defaultVal, options);
+
+        function _estart = function (e) {
+            _touchstart(e,opts,obj);
+        }
+        function _emove = function (e) {
+            _touchmove(e,opts,obj);
+        }
+        function _eend = function (e) {
+            _touchend(e,opts,obj);
+        }
+
         if (window.addEventListener) {
-            obj.addEventListener('touchstart', function (e) {
-                _touchstart(e,opts,obj);
-            }, false);
-            obj.addEventListener('touchmove', function (e) {
-                _touchmove(e,opts,obj);
-            }, false);
-            obj.addEventListener('touchend', function (e) {
-                _touchend(e,opts,obj);
-            }, false);
+            obj.removeEventListener("touchstart", _estart);
+            obj.removeEventListener("touchmove", _emove);
+            obj.removeEventListener("touchend", _eend);
+
+            obj.addEventListener('touchstart', _estart, false);
+            obj.addEventListener('touchmove', _emove, false);
+            obj.addEventListener('touchend', _eend, false);
         } else if (window.attachEvent) {
-            obj.attach('ontouchstart', function (e) {
-                _touchstart(e,opts,obj)
-            });
-            obj.attach('ontouchmove', function (e) {
-                _touchmove(e,opts,obj);
-            });
-            obj.attach('ontouchend', function (e) {
-                _touchend(e,opts,obj);
-            });
+            obj.attach('ontouchstart', _estart);
+            obj.attach('ontouchmove', _emove);
+            obj.attach('ontouchend', _eend);
         }
         return obj;
     }
@@ -158,7 +161,7 @@
 
     var _touchend = function (e,opts,obj) {
         if (e.targetTouches.length > 1 || e.scale && e.scale !== 1) return;
-        if (isClick || (Math.abs(distanceX) < 50 && Math.abs(distanceY) < 50 ) ) {
+        if (isClick || (Math.abs(distanceX) < 30 && Math.abs(distanceY) < 30 ) ) {
             // 点击
             if(opts.tapClose && opts.close){
                 opts.close(obj)
