@@ -35,13 +35,13 @@
         var obj = this;
         var opts = _merge(defaultVal, options);
 
-        function _estart = function (e) {
+        var _estart = function (e) {
             _touchstart(e,opts,obj);
         }
-        function _emove = function (e) {
+        var _emove = function (e) {
             _touchmove(e,opts,obj);
         }
-        function _eend = function (e) {
+        var _eend = function (e) {
             _touchend(e,opts,obj);
         }
 
