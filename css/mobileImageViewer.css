@@ -1,0 +1,44 @@
+.mivcontainer{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.mivcontainer .imgcontainer{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.mivcontainer .imgcontainer .imginner{
+  height: 100%;
+  position: relative;
+}
+.mivcontainer .imgcontainer .imginner .item{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.mivcontainer .imgcontainer .imginner .item img{
+  position: absolute;
+}
+.mivcontainer .indicator{
+  position: absolute;
+  bottom:30px;
+  left:100px;
+  text-align: center;
+  margin: 0 auto;
+  height: 6px;
+}
+.mivcontainer .indicator .ind{
+  height: 100%;
+  background: #aaa;
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+}
+.mivcontainer .indicator .ind.select{
+  background: #FCCC5D;
+}
