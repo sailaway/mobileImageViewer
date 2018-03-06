@@ -92,8 +92,11 @@
         viewer.sliderto(viewer.curindex,0,false);
     }
     viewer.sliderto = function(idx,offsetx,animate){
-        if(idx < 0 || idx >= viewer.images.length){
-            return;
+        if(idx < 0){
+            idx = 0;
+        }
+        if (idx >= viewer.images.length) {
+            idx = viewer.images.length -1
         }
         var w = viewer.$el.width();
         var leftx = idx * w + offsetx;
