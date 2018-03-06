@@ -137,6 +137,7 @@
     };
 
     var _touchmove = function (e,opts,obj) {
+        e.preventDefault();
         if (e.targetTouches.length > 1 || e.scale && e.scale !== 1) return;
         var touch = e.targetTouches[0];
         isClick = false;
