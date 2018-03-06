@@ -14,6 +14,7 @@ function init(){
         vheight: vh,
         indicator:true,
         tapClose:false,
+        sliderReverse:true,
         sliderdownClose:false,
     });
     viewer.show(urls,0)
