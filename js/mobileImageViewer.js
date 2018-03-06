@@ -77,7 +77,7 @@
         innerhtml += "</div>";
         viewer.el.innerHTML = innerhtml;
 
-        $('.imgcontainer .item img').load(function(){
+        $('.imgcontainer .item img').on('load',function(){
             var img = new Image();
             img.src = $(this).attr("src") ;
             var w   = img.width;
