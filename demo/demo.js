@@ -12,7 +12,6 @@ function init(){
     viewer = $('.mobile_image_viewer').MobileImageViewer({
         vwidth: vw,
         vheight: vh,
-        // navigation: true,
         indicator:true,
         tapClose:false,
         sliderdownClose:false,

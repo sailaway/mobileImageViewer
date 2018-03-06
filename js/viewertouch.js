@@ -182,14 +182,14 @@
             // 上滑
         } else if (speedX > flingSpeed || distanceX > scrollDis) {
           // 右滑
-          if(opts.slidernext){
-            opts.slidernext(obj);
+          if(opts.sliderprev){
+            opts.sliderprev(obj);
             return;
           }
         } else if (speedX < -flingSpeed || distanceX < -scrollDis) {
           // 左滑
-          if(opts.sliderprev){
-            opts.sliderprev(obj);
+          if(opts.slidernext){
+            opts.slidernext(obj);
             return;
           }
         }
