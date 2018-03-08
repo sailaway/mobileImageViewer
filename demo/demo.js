@@ -21,5 +21,4 @@ function init(){
         }
     });
     viewer.show(urls,0)
-
 }
