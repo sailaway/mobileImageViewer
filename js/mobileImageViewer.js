@@ -111,7 +111,8 @@
         if (animate) {
             // scroll to leftx
             AppConfig.debugfunc('sliderto scrollTo '+leftx)
-            imgdiv.scrollTo(leftx,0)
+            //imgdiv.scrollTo(leftx,0)
+            imgdiv.scrollLeft = leftx;
         } else {
             // set element position
             imgdiv.scrollLeft = leftx;

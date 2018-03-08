@@ -181,7 +181,6 @@
         var speedY     = _speed(deltaYs)
         // var accespeedX = _accespeed(deltaXs)
         // var accespeedY = _accespeed(deltaYs)
-        // console.log('_touchend speedX:'+speedX+" speedY:"+ speedY+" distanceX:"+distanceX+" distanceY:"+distanceY)
 
         // if (opts.debugfunc) {
         //     opts.debugfunc("_touchend triggered touchLength:"+e.targetTouches.length+",scale:"+e.scale+' speedX:'+speedX+" speedY:"+ speedY+" distanceX:"+distanceX+" distanceY:"+distanceY);
