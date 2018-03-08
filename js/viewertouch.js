@@ -17,7 +17,10 @@
         },
         touchmove:function(obj,moveX,moveY){
             return false;
-        }
+        },
+        debugfunc:function(msg){
+            return false;
+        },
     };
 
     var isClick;
@@ -51,10 +54,10 @@
             obj.removeEventListener("touchend", _eend);
             obj.removeEventListener("touchcancel", _eend);
 
-            obj.addEventListener('touchstart', _estart, true);
-            obj.addEventListener('touchmove', _emove, true);
-            obj.addEventListener('touchend', _eend, true);
-            obj.addEventListener('touchcancel', _eend, true);
+            obj.addEventListener('touchstart', _estart, false);
+            obj.addEventListener('touchmove', _emove, false);
+            obj.addEventListener('touchend', _eend, false);
+            obj.addEventListener('touchcancel', _eend, false);
         } else if (window.attachEvent) {
             obj.attach('ontouchstart', _estart);
             obj.attach('ontouchmove', _emove);
@@ -162,6 +165,10 @@
     };
 
     var _touchend = function (e,opts,obj) {
+        e.preventDefault();
+        if (opts.debugfunc) {
+            opts.debugfunc("_touchend triggered touchLength:"+e.targetTouches.length+",scale:"+e.scale);
+        }
         if (e.targetTouches.length > 1 || e.scale && e.scale !== 1) return;
         if (isClick || (Math.abs(distanceX) < 30 && Math.abs(distanceY) < 30 ) ) {
             // 点击

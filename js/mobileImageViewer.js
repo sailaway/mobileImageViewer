@@ -162,6 +162,7 @@
           slidernext:viewer.slidernext,
           sliderprev:viewer.sliderprev,
           sliderreset:viewer.sliderreset,
+          debugfunc:AppConfig.debugfunc
           touchmove:viewer.touchmove
       });
 
@@ -171,6 +172,9 @@
         tapClose:true,
         sliderdownClose:true,
         sliderReverse:false,
+        debugfunc:function(msg){
+            return false
+        }
     };
     viewer.init();
   };
