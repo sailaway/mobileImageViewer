@@ -110,10 +110,12 @@
         var imgdiv = viewer.el.getElementsByClassName('imgcontainer')[0]
         if (animate) {
             // scroll to leftx
+            AppConfig.debugfunc('sliderto scrollTo '+leftx)
             imgdiv.scrollTo(leftx,0)
         } else {
             // set element position
             imgdiv.scrollLeft = leftx;
+            AppConfig.debugfunc('sliderto scrollLeft '+leftx)
         }
         viewer.curindex = idx;
 
@@ -123,7 +125,6 @@
         }
     }
     viewer.slidernext = function(obj){
-        console.log('slidernext')
         var idx = viewer.curindex + 1;
         if (AppConfig.sliderReverse) {
             idx = viewer.curindex - 1;
@@ -131,7 +132,6 @@
         viewer.sliderto(idx,0,true);
     }
     viewer.sliderprev = function(obj){
-        console.log('sliderprev')
         var idx = viewer.curindex - 1;
         if (AppConfig.sliderReverse) {
             idx = viewer.curindex + 1;
@@ -139,14 +139,12 @@
         viewer.sliderto(idx,0,true);
     }
     viewer.touchmove = function(obj,moveX,moveY){
-        // console.log('touchmove')
         if (AppConfig.sliderReverse) {
             moveX = -moveX;
         }
         viewer.sliderto(viewer.curindex,moveX,false)
     }
     viewer.sliderreset = function(obj){
-        console.log('sliderreset')
         viewer.sliderto(viewer.curindex,0,false)
     },
 

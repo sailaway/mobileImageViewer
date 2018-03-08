@@ -166,10 +166,8 @@
 
     var _touchend = function (e,opts,obj) {
         e.preventDefault();
-        if (opts.debugfunc) {
-            opts.debugfunc("_touchend triggered touchLength:"+e.targetTouches.length+",scale:"+e.scale);
-        }
         if (e.targetTouches.length > 1 || (e.scale && e.scale !== 1) ) return;
+
         if (isClick || (Math.abs(distanceX) < 30 && Math.abs(distanceY) < 30 ) ) {
             // 点击
             if(opts.tapClose && opts.close){
@@ -184,6 +182,10 @@
         // var accespeedX = _accespeed(deltaXs)
         // var accespeedY = _accespeed(deltaYs)
         // console.log('_touchend speedX:'+speedX+" speedY:"+ speedY+" distanceX:"+distanceX+" distanceY:"+distanceY)
+
+        // if (opts.debugfunc) {
+        //     opts.debugfunc("_touchend triggered touchLength:"+e.targetTouches.length+",scale:"+e.scale+' speedX:'+speedX+" speedY:"+ speedY+" distanceX:"+distanceX+" distanceY:"+distanceY);
+        // }
 
         if (speedY > flingSpeed || distanceY > scrollDis) {
           // 下滑
