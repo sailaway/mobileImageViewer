@@ -162,7 +162,7 @@
           slidernext:viewer.slidernext,
           sliderprev:viewer.sliderprev,
           sliderreset:viewer.sliderreset,
-          debugfunc:AppConfig.debugfunc
+          debugfunc:AppConfig.debugfunc,
           touchmove:viewer.touchmove
       });
 

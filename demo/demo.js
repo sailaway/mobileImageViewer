@@ -16,6 +16,9 @@ function init(){
         tapClose:true,
         sliderReverse:true,
         sliderdownClose:false,
+        debugfunc:function(msg){
+            console.log(msg)
+        }
     });
     viewer.show(urls,0)
 

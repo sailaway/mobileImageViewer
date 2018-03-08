@@ -169,7 +169,7 @@
         if (opts.debugfunc) {
             opts.debugfunc("_touchend triggered touchLength:"+e.targetTouches.length+",scale:"+e.scale);
         }
-        if (e.targetTouches.length > 1 || e.scale && e.scale !== 1) return;
+        if (e.targetTouches.length > 1 || (e.scale && e.scale !== 1) ) return;
         if (isClick || (Math.abs(distanceX) < 30 && Math.abs(distanceY) < 30 ) ) {
             // 点击
             if(opts.tapClose && opts.close){
