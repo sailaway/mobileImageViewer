@@ -12,6 +12,7 @@
     viewer.el = el[0];
     viewer.curindex = 0;
     viewer.images = [];
+    viewer.innerdis = 10;
 
     viewer.close = function(obj){
         viewer.$el.hide();
@@ -40,12 +41,12 @@
         if (count <= 0) {
             return;
         }
-        var indw = 30;
-        var indmargin = 10;
-        var leftval = (AppConfig.vwidth - count * (indw + indmargin) )/2;
+        var indw = 20;
+        var indmargin = 8;
+        var leftval = (AppConfig.vwidth - count * indw - (count-1)*indmargin )/2;
         var innerhtml = "";
         for(var i = 0;i < count;i++){
-            innerhtml += "<span class='ind' style='width:"+indw+"px;'></span>";
+            innerhtml += "<span class='ind' style='width:"+indw+"px;margin-right:"+indmargin+"px;'></span>";
         }
         indicator.css('left',leftval+'px')
         indicator.html(innerhtml);
@@ -57,14 +58,14 @@
         viewer.images = images;
         viewer.curindex = initindex;
 
-        var imgdivwidth = AppConfig.vwidth * images.length + 30;
+        var imgdivwidth = AppConfig.vwidth * images.length + ( (images.length-1) * viewer.innerdis ) + 30;
         var innerhtml;
         innerhtml  = "<div class='mivcontainer'>";
         innerhtml += "  <div class='imgcontainer'>";
         innerhtml += "    <div class='imginner' style='width:"+imgdivwidth+"px;'>";
         for(var i = 0; i < images.length;i++){
-          innerhtml += "    <div class='item' style='width:"+AppConfig.vwidth+"px;'>";
-          innerhtml += "      <img src='"+images[i]+"'>"
+          innerhtml += "    <div class='item' style='width:"+(AppConfig.vwidth + viewer.innerdis)+"px;'>";
+          innerhtml += "      <img src='"+images[i]+"' style='width:"+AppConfig.vwidth+"px;'>"
           innerhtml += "    </div>"
         }
         innerhtml += "    </div>";
@@ -99,8 +100,8 @@
             idx = viewer.images.length -1
         }
         var w = viewer.$el.width();
-        var leftx = idx * w + offsetx;
-        var maxx  = (viewer.images.length-1) * w;
+        var leftx = idx * w + idx * viewer.innerdis + offsetx;
+        var maxx  = (viewer.images.length-1) * (w + viewer.innerdis);
         if(leftx < 0){
             leftx = 0
         }

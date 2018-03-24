@@ -14,15 +14,28 @@
   height: 100%;
   position: relative;
 }
+.mivcontainer .imgcontainer .imginner:after{
+  clear:both;
+  content:"";
+  display:block;
+  font-size:0;height:0;line-height:0;visibility:hidden;
+}
 .mivcontainer .imgcontainer .imginner .item{
   position: relative;
-  display: inline-block;
+  display: block;
+  float: left;
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 0;
+  letter-spacing:-800px;
 }
 .mivcontainer .imgcontainer .imginner .item img{
   position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  letter-spacing:-800px;
 }
 .mivcontainer .indicator{
   position: absolute;
@@ -37,7 +50,6 @@
   background: #aaa;
   display: inline-block;
   position: relative;
-  margin-left: 10px;
 }
 .mivcontainer .indicator .ind.select{
   background: #FCCC5D;
